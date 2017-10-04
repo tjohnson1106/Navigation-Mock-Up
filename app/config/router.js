@@ -5,6 +5,7 @@ import { Icon } from 'react-native-elements';
 import Feed from '../screens/Feed';
 import Me from '../screens/Me';
 import UserDetail from '../screens/UserDetail';
+import Settings from '../screens/Settings';
 
 export const FeedStack = StackNavigator({
     Feed: {
@@ -27,7 +28,7 @@ export const Tabs = TabNavigator({
         navigationOptions: {
             tabBarLabel: 'Feed',
             tabBarIcon: ({ tintColor }) => <Icon name="list" size={35} color={tintColor} />
-        }
+        },
     },
     Me: {
         screen: Me,
@@ -37,4 +38,26 @@ export const Tabs = TabNavigator({
         },
 
     },
+    
+});
+
+export const SettingsStack = StackNavigator({
+    Settings: {
+        screen: Settings,
+        navigationOptions: {
+            title: Settings,
+        },
+    },
+});
+
+export const Root = StackNavigator({
+    Tabs: {
+        screen: Tabs,
+    },
+    Settings: {
+        screen: Settings,
+    },
+}, {
+    mode: 'modal',
+    headerMode: 'none',
 });
